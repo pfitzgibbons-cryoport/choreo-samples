@@ -16,7 +16,7 @@ spec:
       port: 8080
       type: REST
       context: /
-      schemaFilePath: ""
+      schemaFilePath: "openapi.yaml"
   env:
     - name: AWS_COGNITO_USER_POOL_ID
       value: ""

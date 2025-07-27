@@ -1,7 +1,8 @@
 openapi: "3.0.0"
 info:
-  title: Hello Service
+  title: Hello Service with Cognito Auth
   version: 1.0.0
+  description: A simple service with a hello endpoint and AWS Cognito authentication
 paths:
   /hello:
     get:
@@ -15,5 +16,70 @@ paths:
             text/plain:
               schema:
                 type: string
+      deprecated: false
+      security: []
+  /auth:
+    post:
+      description: AWS Cognito Authentication
+      tags:
+        - auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                auth:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                    password:
+                      type: string
+                  required:
+                    - username
+                    - password
+              required:
+                - auth
+      responses:
+        '200':
+          description: Authentication successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id_token:
+                    type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        '401':
+          description: Authentication failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        '403':
+          description: Password change required
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  challenge:
+                    type: string
       deprecated: false
       security: []
