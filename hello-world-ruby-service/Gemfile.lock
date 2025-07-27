@@ -1,6 +1,28 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    aws-eventstream (1.4.0)
+    aws-partitions (1.1135.0)
+    aws-sdk-cognitoidentityprovider (1.124.0)
+      aws-sdk-core (~> 3, >= 3.227.0)
+      aws-sigv4 (~> 1.5)
+    aws-sdk-core (3.227.0)
+      aws-eventstream (~> 1, >= 1.3.0)
+      aws-partitions (~> 1, >= 1.992.0)
+      aws-sigv4 (~> 1.9)
+      base64
+      jmespath (~> 1, >= 1.6.1)
+      logger
+    aws-sigv4 (1.12.1)
+      aws-eventstream (~> 1, >= 1.0.2)
+    base64 (0.3.0)
+    dotenv (2.8.1)
+    inifile (3.0.0)
+    jmespath (1.6.2)
+    jwt (2.10.2)
+      base64
+    logger (1.7.0)
+    multi_json (1.17.0)
     mustermann (2.0.2)
       ruby2_keywords (~> 0.0.1)
     rack (2.2.8)
@@ -12,14 +34,26 @@ GEM
       rack (~> 2.2)
       rack-protection (= 2.2.3)
       tilt (~> 2.0)
+    sinatra-contrib (2.2.3)
+      multi_json
+      mustermann (~> 2.0)
+      rack-protection (= 2.2.3)
+      sinatra (= 2.2.3)
+      tilt (~> 2.0)
     tilt (2.0.11)
     webrick (1.7.0)
 
 PLATFORMS
+  arm64-darwin-24
   x86_64-linux
 
 DEPENDENCIES
+  aws-sdk-cognitoidentityprovider (~> 1.61)
+  dotenv (~> 2.8)
+  inifile
+  jwt (~> 2.5)
   sinatra (~> 2.2)
+  sinatra-contrib (~> 2.2)
   webrick (~> 1.7)
 
 BUNDLED WITH

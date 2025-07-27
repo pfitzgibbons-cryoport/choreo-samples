@@ -1,4 +1,8 @@
 source "https://rubygems.org"
 gem "sinatra", "~> 2.2"
 gem "webrick", "~> 1.7"
-
+gem "aws-sdk-cognitoidentityprovider", "~> 1.61"
+gem "jwt", "~> 2.5"
+gem "sinatra-contrib", "~> 2.2" # For JSON handling
+gem "dotenv", "~> 2.8" # For environment variables
+gem "inifile"

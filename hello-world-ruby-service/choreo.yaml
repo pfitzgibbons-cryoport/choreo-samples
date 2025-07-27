@@ -1,0 +1,41 @@
+apiVersion: core.choreo.dev/v1alpha1
+kind: Component
+metadata:
+  name: hello-world-ruby-service
+  projectName: default
+spec:
+  type: service
+  build:
+    dockerfile:
+      path: Dockerfile
+  runtime:
+    container:
+      port: 8080
+  endpoints:
+    - name: default
+      port: 8080
+      type: REST
+      context: /
+      schemaFilePath: ""
+  env:
+    - name: AWS_COGNITO_USER_POOL_ID
+      value: ""
+      type: CONFIGMAP
+    - name: AWS_COGNITO_CLIENT_ID
+      value: ""
+      type: CONFIGMAP
+    - name: AWS_COGNITO_CLIENT_SECRET
+      value: ""
+      type: SECRET
+    - name: AWS_COGNITO_REGION
+      value: ""
+      type: CONFIGMAP
+    - name: AWS_COGNITO_PROFILE
+      value: ""
+      type: CONFIGMAP
+    - name: AWS_ACCESS_KEY_ID
+      value: ""
+      type: SECRET
+    - name: AWS_SECRET_ACCESS_KEY
+      value: ""
+      type: SECRET
